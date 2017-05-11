@@ -13,18 +13,49 @@ require_once("nav.php"); ?>
 				<section id="main" class="container">
 
 					<section class="box special">
+						<h2>Pagina de usuario</h2>
+							<form method="post" action="#">
+								<h4>Usuario</h4>
+								<div class="row uniform 50%">
+									<div class="9u 12u(mobilep)">
+										<input type="text" name="nombre" value="" placeholder="<?=$pNombre?>" />
+									</div>
+									<div class="3u 12u(mobilep)">
+										<input type="submit" value="Edit" class="button fit" />
+									</div>
+								</div>
 
-						<header class="major">
-							<h2><i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
-							<br>
-							para que crees una experiencia unica!</h2>
-							<p>Vivi exitantes aventuras emocionantes.<i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></p><br>
-							<p>Vivi exitantes aventuras emocionantes.<i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></p><br>
-							<p>Vivi exitantes aventuras emocionantes.<i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></p><br>
-							<p><i class="fa fa-file-image-o fa-lg" aria-hidden="true"></i><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></p><br>
-							<i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i><br>
+								<h4>Email</h4>
+								<div class="row uniform 50%">
+									<div class="9u 12u(mobilep)">
+										<input type="email" name="email" value="" placeholder="<?=$pMail?>" />
+									</div>
+									<div class="3u 12u(mobilep)">
+										<input type="submit" value="Edit" class="button fit" />
+									</div>
+								</div>
 
-						</header>
+								<h4>Contraseña</h4>
+								<div class="row uniform 50%">
+									<div class="9u 12u(mobilep)">
+										<input type="text" name="pass" value="" placeholder="********" />
+									</div>
+									<div class="3u 12u(mobilep)">
+										<input type="submit" value="Edit" class="button fit" />
+									</div>
+								</div>
+
+								<h4>Imagen</h4>
+								<div class="row uniform 50%">
+									<div class="9u 12u(mobilep)">
+										<input type="text" name="nombre" value="" placeholder="<?= $userName ?>" />
+									</div>
+									<div class="3u 12u(mobilep)">
+										<input type="submit" value="Edit" class="button fit" />
+									</div>
+								</div>
+							</form>
+
 
 
 					</section>

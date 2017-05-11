@@ -55,17 +55,7 @@ $_POST
 						<div class="row uniform 50%">
 							<div class="6u 12u(mobilep)">
 
-								<?php if (!empty($errores)) { ?>
-									<div style="width:300px;background-color:red">
-										<ul>
-											<?php foreach ($errores as $error) { ?>
-												<li>
-													<?php echo $error ?>
-												</li>
-											<?php } ?>
-										</ul>
-									</div>
-								<?php } ?>
+
 
 								<input type="text" name="name" id="name" value="<?=$pNombre?>" placeholder="Nombre" />
 							</div>
@@ -97,7 +87,17 @@ $_POST
 						</div>
 						<div class="row uniform">
 							<p>
-
+								<?php if (!empty($errores)) { ?>
+									<div style="width:300px;background-color:red">
+										<ul>
+											<?php foreach ($errores as $error) { ?>
+												<li>
+													<?php echo $error ?>
+												</li>
+											<?php } ?>
+										</ul>
+									</div>
+								<?php } ?>
 							</p>
 						</div>
 					</form>
