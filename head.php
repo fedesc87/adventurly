@@ -3,7 +3,9 @@ $file = "usuarios.json";
 if (!isset($_SESSION["usuario"])){
 	$pNombre = "";
 	$pMail = "";
-} elseif (isset($_SESSION["usuario"])) {
+} elseif (isset($_SESSION["usuario"]) && isset($_POST["name"])) {
+	$_POST["name"] = $_SESSION["nombre"];
+	$_POST["email"] = $_SESSION["email"];
 	$pNombre = $_SESSION["nombre"];
 	$pMail = $_SESSION["email"];
 }
