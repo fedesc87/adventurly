@@ -156,7 +156,7 @@ function guardarImagen($upload, $errores) {
 
 	function loguear($mail) {
 		$_SESSION["usuario"] = $mail;
-		$usuario = dameUnoPorMail($email);
+		$usuario = dameUnoPorMail($mail);
 		$_SESSION["nombre"] = $usuario["name"];
 		$_SESSION["email"] = $usuario["email"];
 	}
