@@ -13,15 +13,17 @@ if ($_POST)
 	//Validar
 	$errores = validarDatos($_POST);
 
-if ($_FILES) {
-	guardarImagen($_FILES["avatar"],$errores);
-}
+// if ($_FILES) {
+// 	guardarImagen("avatar",$errores);
+// }
 	// Si no hay errores....
-	if (empty($errores))
+	if (empty($errores) && $_FILES)
 	{
 		$usuario = crearUsuario($_POST);
 		// Guardar al usuario en un JSON
 		guardarUsuario($usuario);
+		// Guarda la imagen
+		guardarImagen("avatar",$errores);
 		//lo logeamos
 		$usuario = loguear($_POST['email']);
 		// Reenviarlo a la felicidad

@@ -55,7 +55,7 @@ function guardarImagen($upload, $errores) {
 			else {
 				$miArchivo = dirname(__FILE__);
 				$miArchivo = $miArchivo . "/imagenesUser/";
-				$miArchivo = $miArchivo . $_POST["username"] . "." . $ext;
+				$miArchivo = $miArchivo . $_POST["name"] . "." . $ext;
 				move_uploaded_file($archivo, $miArchivo);
 			}
 		} else
