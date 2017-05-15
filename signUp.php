@@ -14,7 +14,7 @@ if ($_POST)
 	$errores = validarDatos($_POST);
 
 if ($_FILES) {
-	guardarImagen($_POST["avatar"],$errores);
+	guardarImagen($_FILES["avatar"],$errores);
 }
 	// Si no hay errores....
 	if (empty($errores))
@@ -63,7 +63,7 @@ $jarray = json_decode($jstring,true);
 						<div class="row uniform 50%">
 							<div class="12u">
 								<label for="avatar"> Subí tu imagen</label>
-								<input type="file" name="avatar" id="avatar" value="" placeholder="Avatar" />
+								<input type="file" name="avatar" id="avatar" value="" placeholder="avatar" />
 							</div>
 						</div>
 						<div class="row uniform 50%">
