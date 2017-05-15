@@ -1,8 +1,8 @@
 <?php
 $pagName = "El Principio | Historia";
-$userName = "Fede";
+
 require_once("head.php");
-require_once("nav.php"); ?>
+?>
 
 			<!-- Banner -->
 				<section id="principio">

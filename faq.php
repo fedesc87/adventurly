@@ -1,8 +1,8 @@
 <?php
 $pagName = "F.A.Q.";
-$userName = "Fede";
+
 require_once("head.php");
-require_once("nav.php"); ?>
+?>
 
 			<!-- Banner -->
 				<section id="banner">
@@ -48,5 +48,5 @@ require_once("nav.php"); ?>
 					</section>
 
 				</section>
-				
+
 <?php require_once("footer.php"); ?>

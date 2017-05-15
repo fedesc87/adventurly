@@ -1,13 +1,13 @@
 <?php
 $pagName = "Home";
-$userName = "Fede";
 require_once("head.php");
-require_once("nav.php"); ?>
+?>
 
 			<!-- Banner -->
 				<section id="banner">
+					<img src="images/Aventurefy-02.png" alt="Logo de Adventurly">
 					<h2>Adventurly</h2>
-					<p>Aventuras interactivas donde vos tomas las deciciones!</p>
+					<p>Aventuras interactivas donde vos tomás las deciciones!</p>
 					<ul class="actions">
 						<li><a href="#cta" class="button special">Anotate</a></li>
 						<!-- <li><a href="#adventures" class="button special">Empeza!</a></li> -->
@@ -21,9 +21,9 @@ require_once("nav.php"); ?>
 						<header class="major">
 							<h2>Las mejores aventuras te esperan
 							<br />
-							para que crees una experiencia unica!</h2>
-							<p>Vivi exitantes aventuras emocionantes<br />
-							donde tus deciciones son lo que mas importa.</p>
+							para que crees una experiencia única!</h2>
+							<p>Viví excitantes aventuras emocionantes<br />
+							donde tus deciciones son lo que más importa.</p>
 						</header>
 						<hr id="adventures">
 						<div class="row">
@@ -32,8 +32,8 @@ require_once("nav.php"); ?>
 								<section class="box special">
 									<span class="image featured"><img src="images/elOrigen.jpg" alt="" /></span>
 									<h3>El Origen</h3>
-									<p>Toda gran aventura empieza con un heroe y su decicion de seguir el camino.<br>
-										<i>Esta aventura te va a ayudar a entender el sistema de adventurly</i></p>
+									<p>Toda gran aventura empieza con un héroe y su decición de seguir el camino.<br>
+										<i>Esta aventura te va a ayudar a entender el sistema de Adventurly</i></p>
 									<hr>
 									<i class="fa fa-star" aria-hidden="true"></i>
 									<i class="fa fa-star" aria-hidden="true"></i>
@@ -43,7 +43,7 @@ require_once("nav.php"); ?>
 									<ul class="actions">
 										<li><a href="#" class="button special fit">
 											<i class="fa fa-tree" aria-hidden="true"></i>
-											 Empeza!</a>
+											 Empezá!</a>
 										</li>
 									</ul>
 								</section>
@@ -80,12 +80,12 @@ require_once("nav.php"); ?>
 				<section id="cta">
 
 					<h2>Anotate para más!</h2>
-					<p>Volvete el primero en jugar y recibi un
+					<p>Volvete el primero en jugar y recibí un
 						<span class="fa-stack">
 							<i class="fa fa-dot-circle-o fa-stack-1x"></i>
 							<i class="fa fa-sun-o fa-spin fa-fw fa-stack-2x"></i>
 						</span>
-						Parche exclusivo.</p>
+						parche exclusivo.</p>
 
 					<form>
 						<div class="row uniform 50%">

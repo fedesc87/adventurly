@@ -1,8 +1,7 @@
 <?php
-$pagName = "Home";
-$userName = "Fede";
+$pagName = "Exito!";
 require_once("head.php");
-require_once("nav.php"); ?>
+?>
 
 			<!-- Banner -->
 				<section id="banner">
@@ -14,7 +13,7 @@ require_once("nav.php"); ?>
 
 						<div class="row">
 
-							<div class="6u 12u(narrower)">
+							<div class="12u">
 
 								<section class="box special">
 									<h3>Te Registraste Exitosamentr!</h3>
@@ -44,5 +43,5 @@ require_once("nav.php"); ?>
 
 
 				</section>
-				
+
 <?php require_once("footer.php"); ?>

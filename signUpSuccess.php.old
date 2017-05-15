@@ -1,0 +1,55 @@
+<?php
+$pagName = "Log In";
+
+require_once("head.php");
+
+$pNombre = "";
+$pApellido = "";
+$pMail = "";
+$file = "usuarios.json";
+
+if ($_POST)
+{
+	$pNombre = $_POST["name"];
+	$pMail = $_POST["email"];
+	//Acá vengo si me enviaron el form
+
+	//Validar
+	$errores = validarDatos($_POST);
+
+	// Si no hay errores....
+	if (empty($errores))
+	{
+		$usuario = crearUsuario($_POST);
+		// Guardar al usuario en un JSON
+		guardarUsuario($usuario);
+		// Reenviarlo a la felicidad
+		enviarAFelicidad();
+	}
+}
+
+$fp = fopen($file,"r");
+$fs = filesize($file);
+$jstring = fread($fp,$fs);
+$jarray = json_decode($jstring,true);
+
+$_POST
+?>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>Registrate!</h2>
+				</section>
+
+			<!-- Main -->
+			<section id="main" class="container 75%">
+				<section class="box special">
+
+					<header>
+						<h2>Felicitaciones!</h2>
+						<p>Ya estás registrado en Adventurly, ahora podés disfrutar de nuestro contenido.</p>
+					</header>
+				</section>
+			</section>
+
+<?php require_once("footer.php"); ?>
