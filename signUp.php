@@ -4,12 +4,12 @@ require_once("head.php");
 
 if ($_POST)
 {
-	$pNombre = $_POST["name"];
-	$pMail = $_POST["email"];
+	// $pNombre = $_POST["name"];
+	// $pMail = $_POST["email"];
 	//Acá vengo si me enviaron el form
-	if (!isset($_SESSION["usuario"])) {
-		loguear($_POST["email"]);
-	}
+	// if (!isset($_SESSION["usuario"])) {
+	// 	loguear($_POST["email"]);
+	// }
 	//Validar
 	$errores = validarDatos($_POST);
 
@@ -17,13 +17,13 @@ if ($_POST)
 // 	guardarImagen("avatar",$errores);
 // }
 	// Si no hay errores....
-	if (empty($errores) && $_FILES)
+	if (empty($errores))
 	{
 		$usuario = crearUsuario($_POST);
 		// Guardar al usuario en un JSON
 		guardarUsuario($usuario);
 		// Guarda la imagen
-		guardarImagen("avatar",$errores);
+		// guardarImagen("avatar",$errores);
 		//lo logeamos
 		$usuario = loguear($_POST['email']);
 		// Reenviarlo a la felicidad
@@ -62,12 +62,12 @@ $jarray = json_decode($jstring,true);
 							</div>
 						</div>
 						<!-- Aca va lo del avatar -->
-						<div class="row uniform 50%">
+						<!-- <div class="row uniform 50%">
 							<div class="12u">
 								<label for="avatar"> Subí tu imagen</label>
 								<input type="file" name="avatar" id="avatar" value="" placeholder="avatar" />
 							</div>
-						</div>
+						</div> -->
 						<div class="row uniform 50%">
 							<div class="12u">
 								<input type="password" name="pass" id="password" value="" placeholder="Contraseña" />
