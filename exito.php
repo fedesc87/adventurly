@@ -16,8 +16,8 @@ require_once("head.php");
 							<div class="12u">
 
 								<section class="box special">
-									<h3>Te Registraste Exitosamentr!</h3>
-									<p>De ahora en adelante podes recibir Parches como este <span class="fa-stack">
+									<h3>Te Registraste Exitosamente!</h3>
+									<p>De ahora en adelante podés recibir parches como éste <span class="fa-stack">
 										<i class="fa fa-dot-circle-o fa-stack-1x"></i>
 										<i class="fa fa-sun-o fa-spin fa-fw fa-stack-2x"></i>
 									</span>

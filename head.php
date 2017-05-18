@@ -1,11 +1,12 @@
-<?php require_once("funciones.php");
+<?php
+session_start();
+require_once("funciones.php");
 $file = "usuarios.json";
-if (!isset($_SESSION["usuario"])){
-	$pNombre = "";
-	$pMail = "";
-} elseif (isset($_SESSION["usuario"]) && isset($_POST["name"])) {
-	$_POST["name"] = $_SESSION["nombre"];
-	$_POST["email"] = $_SESSION["email"];
+$pNombre = "";
+$pMail = "";
+if (isset($_SESSION["usuario"])) {
+	// $_POST["name"] = $_SESSION["nombre"];
+	// $_POST["email"] = $_SESSION["email"];
 	$pNombre = $_SESSION["nombre"];
 	$pMail = $_SESSION["email"];
 }

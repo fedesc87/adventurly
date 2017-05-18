@@ -4,10 +4,10 @@
 		header("location:exito.php");exit;
 	}
 
-session_start();
-if (!isset($_SESSION["usuario"]) && isset($_POST["email"])) {
-	loguear($_POST["email"]);
-}
+// session_start();
+// if (!isset($_SESSION["usuario"]) && isset($_POST["email"])) {
+// 	loguear($_POST["email"]);
+// }
 
 function validarDatos($datos) {
 	$errores = [];
@@ -24,7 +24,7 @@ function validarDatos($datos) {
 		$errores["email"] = "Mal formato de email";
 	}
 	else if (dameUnoPorMail($email) != NULL) {
-		$errores["mail"] = "Ese mail ya existe";
+		$errores["email"] = "Ese mail ya existe";
 	}
 	// if (!is_numeric($_POST["edad"])) {
 	// 	$errores["edad"] = "La edad debe ser un número";
