@@ -53,6 +53,21 @@ $jarray = json_decode($jstring,true);
 					</header>
 
 					<form method="post" action="" enctype="multipart/form-data">
+						<div class="row uniform">
+							<p>
+								<?php if (!empty($errores)) { ?>
+									<div class="12u" style="background-color:#e74c3c;color:white;border-radius:5px;">
+										<ul class="align-center">
+											<?php foreach ($errores as $error) { ?>
+												<li style="list-style: none;">
+													<?php echo $error ?>
+												</li>
+											<?php } ?>
+										</ul>
+									</div>
+								<?php } ?>
+							</p>
+						</div>
 						<div class="row uniform 50%">
 							<div class="6u 12u(mobilep)">
 								<input type="text" name="name" id="name" value="<?=$pNombre?>" placeholder="Nombre" />
@@ -91,21 +106,7 @@ $jarray = json_decode($jstring,true);
 							</div>
 						</div>
 						<hr>
-						<div class="row uniform">
-							<p>
-								<?php if (!empty($errores)) { ?>
-									<div class="12u" style="background-color:#e74c3c;color:white;border-radius:5px;">
-										<ul class="align-center">
-											<?php foreach ($errores as $error) { ?>
-												<li style="list-style: none;">
-													<?php echo $error ?>
-												</li>
-											<?php } ?>
-										</ul>
-									</div>
-								<?php } ?>
-							</p>
-						</div>
+
 					</form>
 
 				</section>

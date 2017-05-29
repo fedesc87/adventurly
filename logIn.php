@@ -44,7 +44,21 @@ if ($_POST)
 				</header>
 
 					<form method="post" action="">
-
+						<div class="row uniform">
+							<p>
+								<?php if (!empty($errores)) { ?>
+									<div style="width:300px;background-color:red">
+										<ul>
+											<?php foreach ($errores as $error) { ?>
+												<li>
+													<?php echo $error ?>
+												</li>
+											<?php } ?>
+										</ul>
+									</div>
+								<?php } ?>
+							</p>
+						</div>
 						<div class="row uniform 50%">
 							<div class="12u">
 								<input type="email" name="email" id="email" value="" placeholder="E-mail" />
@@ -73,21 +87,6 @@ if ($_POST)
 									<li><input type="submit" value="Log with Facebook"/></li>
 								</ul>
 							</div>
-						</div>
-						<div class="row uniform">
-							<p>
-								<?php if (!empty($errores)) { ?>
-									<div style="width:300px;background-color:red">
-										<ul>
-											<?php foreach ($errores as $error) { ?>
-												<li>
-													<?php echo $error ?>
-												</li>
-											<?php } ?>
-										</ul>
-									</div>
-								<?php } ?>
-							</p>
 						</div>
 					</form>
 				</section>
