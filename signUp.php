@@ -1,41 +1,81 @@
 <?php
 $pagName = "Sign In";
 require_once("head.php");
-
-if ($_POST)
-{
-	// $pNombre = $_POST["name"];
-	// $pMail = $_POST["email"];
-	//Acá vengo si me enviaron el form
-	// if (!isset($_SESSION["usuario"])) {
-	// 	loguear($_POST["email"]);
-	// }
-	//Validar
-	$errores = validarDatos($_POST);
-
-// if ($_FILES) {
-// 	guardarImagen("avatar",$errores);
+//Registro JSon
+// if ($_POST)
+// {
+// 	// $pNombre = $_POST["name"];
+// 	// $pMail = $_POST["email"];
+// 	//Acá vengo si me enviaron el form
+// 	// if (!isset($_SESSION["usuario"])) {
+// 	// 	loguear($_POST["email"]);
+// 	// }
+// 	//Validar
+// 	$errores = validarDatos($_POST);
+//
+// // if ($_FILES) {
+// // 	guardarImagen("avatar",$errores);
+// // }
+// 	// Si no hay errores....
+// 	if (empty($errores))
+// 	{
+// 		$usuario = crearUsuario($_POST);
+// 		// Guardar al usuario en un JSON
+// 		guardarUsuario($usuario);
+// 		// Guarda la imagen
+// 		// guardarImagen("avatar",$errores);
+// 		//lo logeamos
+// 		$usuario = loguear($_POST['email']);
+// 		// Reenviarlo a la felicidad
+// 		enviarAFelicidad();
+// 	}
 // }
-	// Si no hay errores....
-	if (empty($errores))
-	{
-		$usuario = crearUsuario($_POST);
-		// Guardar al usuario en un JSON
-		guardarUsuario($usuario);
-		// Guarda la imagen
-		// guardarImagen("avatar",$errores);
-		//lo logeamos
-		$usuario = loguear($_POST['email']);
-		// Reenviarlo a la felicidad
-		enviarAFelicidad();
+//
+// $fp = fopen($file,"r");
+// $fs = filesize($file);
+// $jstring = fread($fp,$fs);
+// $jarray = json_decode($jstring,true);
+require 'clsValidacion.php';
+require 'clsUsuario.php';
+
+if($_POST) {
+
+	$validar = new Validacion();
+
+	//validamos
+
+	$errores = array();
+
+	if(!$validar->validarEmail($_POST['email'])) {
+		$errores[] = 'El email no es valido';
+	}
+
+	if(!$validar->validarPassword($_POST['pass'])) {
+		$errores[] = 'La contraseña no es valida';
+	}
+
+	if(!$validar->validarUsuario($_POST['name'])) {
+		$errores[] = 'El usuario no es valido';
+	}
+	if ($_POST["cpass"] != $_POST['pass']) {
+		$errores[] = 'Las contraseñas no concuerdan';
+	}
+
+	if(empty($errores)) {
+
+		$db = new PDO('mysql:host=localhost;dbname=adventurly',
+						'root',
+						'root');
+
+		$usuario = new Usuario($db);
+
+		$idusuario = $usuario->registrarUsuario($_POST);
+
+		echo "el id es " . $idusuario;
+
+		header("location:exito.php");exit;
 	}
 }
-
-$fp = fopen($file,"r");
-$fs = filesize($file);
-$jstring = fread($fp,$fs);
-$jarray = json_decode($jstring,true);
-
 ?>
 
 			<!-- Banner -->
@@ -56,13 +96,13 @@ $jarray = json_decode($jstring,true);
 						<div class="row uniform">
 							<p>
 								<?php if (!empty($errores)) { ?>
-									<div class="12u" style="background-color:#e74c3c;color:white;border-radius:5px;">
-										<ul class="align-center">
-											<?php foreach ($errores as $error) { ?>
-												<li style="list-style: none;">
-													<?php echo $error ?>
-												</li>
-											<?php } ?>
+									<div class="12u errores">
+										<ul>
+											<?php foreach ($errores as $error) {
+												echo "<li>";
+												echo $error;
+												echo "</li><br>";
+											} ?>
 										</ul>
 									</div>
 								<?php } ?>

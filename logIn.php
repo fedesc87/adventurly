@@ -2,32 +2,54 @@
 $pagName = "Log In";
 require_once("head.php");
 
+//Codigo del JSon
+// $fp = fopen("usuarios.json","r");
+// $fs = filesize("usuarios.json");
+// $jstring = fread($fp,$fs);
+// $jarray = json_decode($jstring,true);
+//
+// if ($_POST)
+// {
+// 	// $pNombre = $_POST["name"];
+// 	$pMail = $_POST["email"];
+// 	//Acá vengo si me enviaron el form
+//
+// 	//Validar
+// 	$errores = validarLogin($_POST);
+//
+// 	// Si no hay errores....
+// 	if (empty($errores))
+// 	{
+// 		$usuario = loguear($_POST['email']);
+// 		// Reenviarlo a la felicidad
+// 		header("location:index.php");exit;
+// 	}
+// }
+require_once 'clsValidacion.php';
+require_once 'clsUsuario.php';
 
-$fp = fopen("usuarios.json","r");
-$fs = filesize("usuarios.json");
-$jstring = fread($fp,$fs);
-$jarray = json_decode($jstring,true);
+if($_POST) {
+	$validar = new Validacion();
 
-if ($_POST)
-{
-	// $pNombre = $_POST["name"];
-	$pMail = $_POST["email"];
-	//Acá vengo si me enviaron el form
+	//validamos
+	$errores = array();
+	if(!$validar->validarPassword($_POST['pass'])) {
+		$errores[] = 'La Contraseña no es valida';
+	}
+	if(!$validar->validarEmail($_POST['email'])) {
+		$errores[] = 'El email no es valido';
+	}
+	if(empty($errores)) {
 
-	//Validar
-	$errores = validarLogin($_POST);
+		$db = new PDO('mysql:host=localhost;dbname=adventurly',
+						'root',
+						'root');
 
-	// Si no hay errores....
-	if (empty($errores))
-	{
-		$usuario = loguear($_POST['email']);
-		// Reenviarlo a la felicidad
-		header("location:index.php");exit;
+		$usuario = new Usuario($db);
+
+		$usuario->logeo($_POST);
 	}
 }
-
-
-
 ?>
 
 			<!-- Banner -->
@@ -47,13 +69,13 @@ if ($_POST)
 						<div class="row uniform">
 							<p>
 								<?php if (!empty($errores)) { ?>
-									<div style="width:300px;background-color:red">
+									<div class="errores">
 										<ul>
-											<?php foreach ($errores as $error) { ?>
-												<li>
-													<?php echo $error ?>
-												</li>
-											<?php } ?>
+											<?php foreach ($errores as $error) {
+												echo"<li>";
+												echo $error;
+												echo "</li>";
+											} ?>
 										</ul>
 									</div>
 								<?php } ?>
@@ -61,10 +83,12 @@ if ($_POST)
 						</div>
 						<div class="row uniform 50%">
 							<div class="12u">
+								<label>Email</label>
 								<input type="email" name="email" id="email" value="" placeholder="E-mail" />
 							</div>
 
 							<div class="12u">
+								<label>Contraseña</label>
 								<input type="password" name="pass" id="pass" value="" placeholder="Password" />
 							</div>
 
