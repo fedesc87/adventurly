@@ -4,10 +4,10 @@ require_once("funciones.php");
 $file = "usuarios.json";
 $pNombre = "";
 $pMail = "";
-if (isset($_SESSION["usuario"])) {
+if (isset($_SESSION["name"])) {
 	// $_POST["name"] = $_SESSION["nombre"];
 	// $_POST["email"] = $_SESSION["email"];
-	$pNombre = $_SESSION["nombre"];
+	$pNombre = $_SESSION["name"];
 	$pMail = $_SESSION["email"];
 }
 ?>
@@ -27,14 +27,14 @@ if (isset($_SESSION["usuario"])) {
 	        <nav id="nav">
 	          <ul>
 	            <li><a href="index.php">Home</a></li>
-						<?php if (!isset($_SESSION["usuario"])){
+						<?php if (!isset($_SESSION["name"])){
 	            echo '<li><a href="logIn.php">Log In</a></li>';
 	            echo '<li><a href="signUp.php">Sign Up</a></li>';
 						}
 						?>
 	            <li><a href="faq.php">F.A.Q.</a></li>
 	            <?php
-	            if (isset($_SESSION["usuario"])) {?>
+	            if (isset($_SESSION["name"])) {?>
 	                <li><a href="user.php"><i class="fa fa-user"></i>  <?= $pNombre ?></a></li>
 									<li><a href="exit.php"><i class="fa fa-window-close"></i>  Exit </a></li>
 	            <?php } ?>

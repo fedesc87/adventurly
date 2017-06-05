@@ -66,29 +66,23 @@ if($_POST) {
 				</header>
 
 					<form method="post" action="">
-						<div class="row uniform">
-							<p>
+						<div class="row uniform 50%">
 								<?php if (!empty($errores)) { ?>
-									<div class="errores">
-										<ul>
+									<div class="errores 12u">
 											<?php foreach ($errores as $error) {
-												echo"<li>";
-												echo $error;
-												echo "</li>";
+												echo $error . "<br>";
 											} ?>
-										</ul>
 									</div>
 								<?php } ?>
-							</p>
 						</div>
 						<div class="row uniform 50%">
 							<div class="12u">
-								<label>Email</label>
+								<label style="text-aligned=left">Email</label>
 								<input type="email" name="email" id="email" value="" placeholder="E-mail" />
 							</div>
 
 							<div class="12u">
-								<label>Contraseña</label>
+								<label style="text-aligned=left">Contraseña</label>
 								<input type="password" name="pass" id="pass" value="" placeholder="Password" />
 							</div>
 

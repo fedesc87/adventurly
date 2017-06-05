@@ -26,7 +26,7 @@ class Usuario {
 	public function registrarUsuario($arr) {
 
 
-		$sql = "INSERT INTO usuarios (usuario, email, password) VALUES ('".$arr['usuario']."','".$arr['email']."','".md5($arr['password'])."')";
+		$sql = "INSERT INTO usuarios (name, email, pass) VALUES ('".$arr['name']."','".$arr['email']."','".md5($arr['pass'])."')";
 
 		$this->db->query($sql);
 
@@ -34,9 +34,9 @@ class Usuario {
 	}
 
 	public function logeo($arr){
-		$sql = "SELECT id, usuario, email FROM usuarios
+		$sql = "SELECT id, name, email FROM usuarios
 		 WHERE email = '".$arr['email']."'
-		 and password = '".md5($arr['password'])."'";
+		 and pass = '".md5($arr['pass'])."'";
 		 //echo $sql;
 		$result = $this->db->query($sql);
 		$usuario = $result->fetch(PDO::FETCH_ASSOC);
@@ -44,10 +44,10 @@ class Usuario {
 
 		if($usuario){
 			session_start();
-			$_SESSION['usuario']=$usuario['usuario'];
+			$_SESSION['name']=$usuario['name'];
 			$_SESSION['email']=$usuario['email'];
 			$_SESSION['id']=$usuario['id'];
-			header('location:bienvenidos.php');
+			header('location:index.php');
 			exit();
 		}else{
 			// retorno error y muestro en el formulario.
