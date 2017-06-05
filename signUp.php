@@ -94,19 +94,13 @@ if($_POST) {
 
 					<form method="post" action="" enctype="multipart/form-data">
 						<div class="row uniform">
-							<p>
 								<?php if (!empty($errores)) { ?>
-									<div class="12u errores">
-										<ul>
+									<div class="errores 12u">
 											<?php foreach ($errores as $error) {
-												echo "<li>";
-												echo $error;
-												echo "</li><br>";
+												echo $error . "<br>";
 											} ?>
-										</ul>
 									</div>
 								<?php } ?>
-							</p>
 						</div>
 						<div class="row uniform 50%">
 							<div class="6u 12u(mobilep)">
