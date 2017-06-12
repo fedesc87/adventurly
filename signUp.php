@@ -51,7 +51,7 @@ if($_POST) {
 	}
 
 	if(!$validar->validarPassword($_POST['pass'])) {
-		$errores[] = 'La contraseña no es valida';
+		$errores[] = 'La contraseña debe tener por lo menos 8 caracteres';
 	}
 
 	if(!$validar->validarUsuario($_POST['name'])) {
