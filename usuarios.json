@@ -1,10 +1,12 @@
 
-{"name":"Fran","email":"pancho@pancho.com","pass":"$2y$10$LyP7XQGYFdZfSOWQRMogFehOiDzMlMrIDfXS\/RwgKFj6YnTF7I9XK","id":1}
-{"name":"Ignacio Santa Cruz","email":"ignaciosc89@gmail.com","pass":"$2y$10$mcGTnkpNv5OKjIXK6shXwetG88EZ40Q5eqvcLDsk0HKAD2emfG5fe","id":2}
-{"name":"Federico Santa Cruz","email":"federicosc@gmail.com","pass":"$2y$10$rSMxv\/OiLMxN\/PDQZhsqZeHAf3T.yiF4leZtfVIuirK8ra1M0GOnC","id":3}
-{"name":"Pancho Blanco","email":"pancho@gmail.com","pass":"$2y$10$gzJl8d74az3c\/p74CL7CXufZy\/ntk1EDv6lQ.i3AENvDcK8DaqjYG","id":4}
-{"name":"Pancho","email":"p@p.com","pass":"$2y$10$TjfGKiBYTm6RR1Vo6iT7ce4iiSBfUVJw0\/S29j18.21jeonSfzm8W","id":5}
-{"name":"F","email":"f@f.com","pass":"$2y$10$PiiZhnyB0l6OvCvffvZNA.faE6VfepC6wg1c2IGwXn7OmkQet7cZa","id":6}
-{"name":"I","email":"i@i.com","pass":"$2y$10$zlFHxjJhUZ7aXd8pa76nA.fiEXoOMSi2d9..rcC.AooGM5I\/e7IOG","id":7}
-{"name":"h","email":"h@h.com","pass":"$2y$10$Uk7m5\/mjh\/KgVcJA.4g5v.ba0b0GaKHot6abcponM6atpqIyuUGra","id":8}
+[
+{"name":"Fran","email":"pancho@pancho.com","pass":"$2y$10$LyP7XQGYFdZfSOWQRMogFehOiDzMlMrIDfXS\/RwgKFj6YnTF7I9XK","id":1},
+{"name":"Ignacio Santa Cruz","email":"ignaciosc89@gmail.com","pass":"$2y$10$mcGTnkpNv5OKjIXK6shXwetG88EZ40Q5eqvcLDsk0HKAD2emfG5fe","id":2},
+{"name":"Federico Santa Cruz","email":"federicosc@gmail.com","pass":"$2y$10$rSMxv\/OiLMxN\/PDQZhsqZeHAf3T.yiF4leZtfVIuirK8ra1M0GOnC","id":3},
+{"name":"Pancho Blanco","email":"pancho@gmail.com","pass":"$2y$10$gzJl8d74az3c\/p74CL7CXufZy\/ntk1EDv6lQ.i3AENvDcK8DaqjYG","id":4},
+{"name":"Pancho","email":"p@p.com","pass":"$2y$10$TjfGKiBYTm6RR1Vo6iT7ce4iiSBfUVJw0\/S29j18.21jeonSfzm8W","id":5},
+{"name":"F","email":"f@f.com","pass":"$2y$10$PiiZhnyB0l6OvCvffvZNA.faE6VfepC6wg1c2IGwXn7OmkQet7cZa","id":6},
+{"name":"I","email":"i@i.com","pass":"$2y$10$zlFHxjJhUZ7aXd8pa76nA.fiEXoOMSi2d9..rcC.AooGM5I\/e7IOG","id":7},
+{"name":"h","email":"h@h.com","pass":"$2y$10$Uk7m5\/mjh\/KgVcJA.4g5v.ba0b0GaKHot6abcponM6atpqIyuUGra","id":8},
 {"name":"Hot Dog","email":"hot@dog.com","pass":"$2y$10$Co8\/fxywhZuvPPp4m2IpPuZhbtnnOOqsWl0cEotxSw.nrjw6SySfG","id":9}
+]

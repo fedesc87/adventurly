@@ -33,6 +33,15 @@ class Usuario {
 		return $this->db->lastInsertId();
 	}
 
+	public function registrarJSON($arr) {
+
+		$sql = "INSERT INTO usuarios (name, email, pass) VALUES ('".$arr['name']."','".$arr['email']."','".($arr['pass'])."')";
+
+		$this->db->query($sql);
+
+		return $this->db->lastInsertId();
+	}
+
 	public function logeo($arr){
 		$sql = "SELECT id, name, email FROM usuarios
 		 WHERE email = '".$arr['email']."'
