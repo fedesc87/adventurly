@@ -8,32 +8,38 @@ $fp = fopen("usuarios.json","r");
 $fs = filesize("usuarios.json");
 $jstring = fread($fp,$fs);
 $jarray = json_decode($jstring, true);
+
+$errores = array();
 $transferidos = [];
+
 if ($_POST) {
   $db = new PDO('mysql:host=localhost;dbname=adventurly',
           'root',
           'root');
 
+
   foreach ($jarray as $innerArray) {
+      //echo "soy ".$innerArray['email'].'<br>';
 
       $validar = new Validacion();
       $usuario = new Usuario($db);
     	//validamos
-    	$errores = array();
 
     	if(!$validar->validarEmail($innerArray['email'])) {
     		$errores[] = 'El email no es valido';
     	}
 
     	if(!$validar->validarUsuario($innerArray['name'])) {
-    		$errores[] = 'El usuario no es valido';
+    		$errores[] = $innerArray['name'].' es un usuario no valido';
     	}
 
       if($usuario->existeUsuarioConEsteEmail($innerArray['email']) == true) {
-        $errores[] = 'Los usuarios ya existen en nuestra base de datos';
+        //echo "existo papu ".$innerArray['email'].'<br>';
+        $errores[] = $innerArray['email'].' ya existen en nuestra base de datos';
       }
 
     	if(empty($errores)) {
+        //echo "me transferi ".$innerArray['email'].'<br>';
         $transferidos[] = $innerArray['email'];
     		$idusuario = $usuario->registrarJSON($innerArray);
       }
@@ -69,39 +75,53 @@ if ($_POST) {
      </ul>
      <hr>
    </div>
-   <div class="12u">
+   <!-- <div class="12u">
+     consola para debuggear
      <section class='box special'>
        <?php
-        echo"<pre>";
-        print_r($_POST);
-        print_r($transferidos);
+        // echo "<h3>Debug console</h3>";
+        // echo"<pre>";
+        // print_r($_POST);
+        // print_r($transferidos);
        ?>
      </section>
      <hr>
-   </div>
+   </div> -->
  </div>
  <div class="row">
-   <?php if ($_POST) {
-   echo "<div class='12u align-center' style='height: 20vh;font-weight: 500;background-color: #8e44ad;color: #7f8c8d;padding: 10px;border-radius: 10px;'>";
-     echo "<h3 style='color: #e74c3c;font-weight: 500;'>usuarios Transferidos</h3>";
-     echo "<section style='height: 20vh;font-weight: 500;background-color: #8e44ad;color: #7f8c8d;padding: 10px;border-radius: 10px;'>";
+   <div class="12u align-center">
+     <h2 style='color: #e74c3c;font-weight: 500;'>Transferencia de Usuarios</h2>
+   </div>
+
+   <div class='12u align-center' style='font-weight: 500;background-color: #8e44ad;color: #7f8c8d;padding: 10px;border-radius: 10px;'>
+    <h3 style='color: #e74c3c;font-weight: 500;'>Errores de transferencia</h3>
+    <hr style='color: #e74c3c;'>
+     <section style='font-weight: 500;background-color: #8e44ad;color: #7f8c8d;padding: 10px;border-radius: 10px;'>
+    <?php if ($_POST) {
      echo "<ul style='color: #e74c3c;list-style: none;'>";
         foreach ($errores as $key => $value) {
           echo "<li>" . $value . "</li>";
         }
      echo "</ul>";
-     echo "</section>";
-     echo "<hr>";
-     echo "<section style='font-weight: 500;background-color: #8e44ad;color: #7f8c8d;padding: 10px;border-radius: 10px;'>";
+     }
+     ?>
+    </section>
+
+    <h3 style='color: #e74c3c;font-weight: 500;'>Usuarios Transferidos</h3>
+    <hr style='color: #e74c3c;'>
+
+    <section style='font-weight: 500;background-color: #8e44ad;color: #7f8c8d;padding: 10px;border-radius: 10px;'>
+
+    <?php if ($_POST) {
      echo "<ul style='color: #e74c3c;list-style: none;'>";
         foreach ($transferidos as $key => $value) {
           echo "<li>" . $value . "</li>";
         }
      echo "</ul>";
-     echo "</section>";
-     }
-   echo "</div>";
-   ?>
+   }
+    ?>
+    </section>
+   </div>
  </div>
 
 </form>
