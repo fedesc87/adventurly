@@ -20,7 +20,8 @@ class Usuario {
 		$sql = "SELECT * FROM usuarios WHERE email = '".$e."'";
 
 		$this->db->query($sql);
-		return $this->db->fetchColumn();
+		return $this->db->query($sql)->fetchColumn();
+		//return $this->db->fetchColumn();
 	}
 
 	public function registrarUsuario($arr) {

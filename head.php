@@ -35,8 +35,8 @@ if (isset($_SESSION["name"])) {
 	            <li><a href="faq.php">F.A.Q.</a></li>
 	            <?php
 	            if (isset($_SESSION["name"])) {?>
-	                <li><a href="user.php"><i class="fa fa-user"></i>  <?= $pNombre ?></a></li>
-									<li><a href="exit.php"><i class="fa fa-window-close"></i>  Exit </a></li>
+	                <li><a href="user.php"><i class="fa fa-user"></i><?=$pNombre?></a></li>
+									<li><a href="exit.php"><i class="fa fa-window-close"></i>Exit</a></li>
 	            <?php } ?>
 	            <!-- <i class="fa fa-user fa-fw"> -->
 	          </ul>
