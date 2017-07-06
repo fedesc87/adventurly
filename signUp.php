@@ -84,7 +84,15 @@ function validateForm() {
 	var cpass = document.signup.cpass.value;
 	var email = document.signup.email.value;
 
-	
+	$(email).blur(function(){
+		//Estoy perdido (?)
+		$.post('clsUsuario.php', function()
+		{
+
+		});
+		// existeUsuarioConEsteEmail(email)
+		alert(email)
+	});
 
 	if (pass != cpass) {
 		alert('Las contraseñas no coinciden');
