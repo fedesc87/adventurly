@@ -1,5 +1,5 @@
 <?php
-$pagName = "Sign In";
+$pagName = "Sign Up";
 require_once("head.php");
 //Registro JSon
 // if ($_POST)
@@ -40,26 +40,26 @@ require 'clsUsuario.php';
 
 if($_POST) {
 
-	$validar = new Validacion();
-
-	//validamos
-
-	$errores = array();
-
-	if(!$validar->validarEmail($_POST['email'])) {
-		$errores[] = 'El email no es valido';
-	}
-
-	if(!$validar->validarPassword($_POST['pass'])) {
-		$errores[] = 'La contraseña debe tener por lo menos 8 caracteres';
-	}
-
-	if(!$validar->validarUsuario($_POST['name'])) {
-		$errores[] = 'El usuario no es valido';
-	}
-	if ($_POST["cpass"] != $_POST['pass']) {
-		$errores[] = 'Las contraseñas no concuerdan';
-	}
+	// $validar = new Validacion();
+	//
+	// //validamos
+	//
+	// $errores = array();
+	//
+	// if(!$validar->validarEmail($_POST['email'])) {
+	// 	$errores[] = 'El email no es valido';
+	// }
+	//
+	// if(!$validar->validarPassword($_POST['pass'])) {
+	// 	$errores[] = 'La contraseña debe tener por lo menos 8 caracteres';
+	// }
+	//
+	// if(!$validar->validarUsuario($_POST['name'])) {
+	// 	$errores[] = 'El usuario no es valido';
+	// }
+	// if ($_POST["cpass"] != $_POST['pass']) {
+	// 	$errores[] = 'Las contraseñas no concuerdan';
+	// }
 
 	if(empty($errores)) {
 
@@ -78,6 +78,21 @@ if($_POST) {
 }
 ?>
 
+<script type="text/javascript">
+function validateForm() {
+	var pass = document.signup.pass.value;
+	var cpass = document.signup.cpass.value;
+	var email = document.signup.email.value;
+
+	
+
+	if (pass != cpass) {
+		alert('Las contraseñas no coinciden');
+		return false;
+	}
+}
+</script>
+
 			<!-- Banner -->
 				<section id="banner">
 					<h2>Registrate!</h2>
@@ -92,7 +107,7 @@ if($_POST) {
 						<p>Unite a la aventura, guardá tu progreso y disfrutá.</p>
 					</header>
 
-					<form method="post" action="" enctype="multipart/form-data">
+					<form method="post" name="signup" onsubmit="return validateForm()" action="" enctype="multipart/form-data">
 						<div class="row uniform">
 								<?php if (!empty($errores)) { ?>
 									<div class="errores 12u">
@@ -104,10 +119,10 @@ if($_POST) {
 						</div>
 						<div class="row uniform 50%">
 							<div class="6u 12u(mobilep)">
-								<input type="text" name="name" id="name" value="<?=$pNombre?>" placeholder="Nombre" />
+								<input type="text" name="name" id="name" value="<?=$pNombre?>" placeholder="Nombre" required=""/>
 							</div>
 							<div class="6u 12u(mobilep)">
-								<input type="email" name="email" id="email" value="<?=$pMail?>" placeholder="E-mail" />
+								<input type="email" name="email" id="email" value="<?=$pMail?>" placeholder="E-mail" required=""/>
 							</div>
 						</div>
 						<!-- Aca va lo del avatar -->
@@ -119,18 +134,18 @@ if($_POST) {
 						</div> -->
 						<div class="row uniform 50%">
 							<div class="12u">
-								<input type="password" name="pass" id="password" value="" placeholder="Contraseña" />
+								<input type="password" name="pass" id="password" value="" placeholder="Contraseña" required=""/>
 							</div>
 						</div>
 						<div class="row uniform 50%">
 							<div class="12u">
-								<input type="password" name="cpass" id="passwordCh" value="" placeholder="Confirma Contraseña" />
+								<input type="password" name="cpass" id="passwordCh" value="" placeholder="Confirma Contraseña" required=""/>
 							</div>
 						</div>
 						<div class="row uniform">
 							<div class="6u 12u(mobilep)">
 								<ul class="actions align-center">
-									<li><input type="submit" value="Sign Up" /></li>
+									<li><input type="submit" id="btn-submit" value="Sign Up" /></li>
 								</ul>
 							</div>
 							<div class="6u 12u(mobilep)">
