@@ -23,6 +23,25 @@
     <ul class="copyright">
       <li>&copy; Adventurly es una idea por Fede & Pancho. Su derechos son de quien deban ser</li><br>
       <li>Diseño por: <a href="http://campus.digitalhouse.com/login/index.php">Nosotros</a></li>
+      <p>
+        <script type="text/javascript">
+          $(document).ready(function()
+          {
+            $(function()
+              {
+                var usuarios = $.post("assets/contador.php",
+                  {
+                   request: numUsuarios
+                 });
+                usuarios.done(function(data)
+                {
+                  $('#contador').html('Ya somos'+ data +'usuarios registrados, iupiii!');
+                })
+              });
+          });
+        </script>
+
+      <li class="contador"> <li>
     </ul>
     <br>
     <a href=""><i class="fa fa-bug fa-1x" aria-hidden="true"></i>  Reportanos un bicho!</a>

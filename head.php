@@ -10,6 +10,9 @@ if (isset($_SESSION["name"])) {
 	$pNombre = $_SESSION["name"];
 	$pMail = $_SESSION["email"];
 }
+
+
+
 ?>
 <html>
 	<head>
@@ -17,7 +20,8 @@ if (isset($_SESSION["name"])) {
 		<title> <?= $pagName ?> | Adventurly </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/main.css" id="csslink"/>
+		<script src="jquery-3.2.1.js" charset="utf-8"></script>
 	</head>
 	<body class="landing">
 	  <div id="page-wrapper">
@@ -39,6 +43,10 @@ if (isset($_SESSION["name"])) {
 									<li><a href="exit.php"><i class="fa fa-window-close"></i>Exit</a></li>
 	            <?php } ?>
 	            <!-- <i class="fa fa-user fa-fw"> -->
+							<li><a href='javascript:colorswitch();' id="csspalette">Light Mode</a></li>
+
+							<script src="assets/js/colorswitch.js"></script>
+
 	          </ul>
 	        </nav>
 	      </header>
