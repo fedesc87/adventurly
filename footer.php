@@ -24,24 +24,32 @@
       <li>&copy; Adventurly es una idea por Fede & Pancho. Su derechos son de quien deban ser</li><br>
       <li>Diseño por: <a href="http://campus.digitalhouse.com/login/index.php">Nosotros</a></li>
       <p>
-        <script type="text/javascript">
-          $(document).ready(function()
-          {
-            $(function()
-              {
-                var usuarios = $.post("assets/contador.php",
-                  {
-                   request: numUsuarios
-                 });
-                usuarios.done(function(data)
-                {
-                  $('#contador').html('Ya somos'+ data +'usuarios registrados, iupiii!');
-                })
-              });
-          });
+
+        <script>
+
+          countUsers();
+          var users = setInterval(function(){ countUsers() }, 30000);
+
+          function countUsers() {
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("userCount").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET","count.php?q",true);
+            xmlhttp.send();
+          }
         </script>
 
-      <li class="contador"> <li>
+
+      <li class="contador"> Ya somos <span id='userCount'></span> usuarios!<li>
     </ul>
     <br>
     <a href=""><i class="fa fa-bug fa-1x" aria-hidden="true"></i>  Reportanos un bicho!</a>
