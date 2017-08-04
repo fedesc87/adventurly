@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// todo
+// -Home
+// Login
+// Register
+// About - FAQ
+// Historias - (va a tener varias)
+// -> la idea de las historias es no re cargar sino hacerlo con jquery
+// Usuario -> medallas
