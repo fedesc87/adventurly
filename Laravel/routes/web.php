@@ -12,13 +12,30 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/faq', function () {
+    return view('faq');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/historias', 'HomeController@index')->name('home');
+
+// Route::get('/historias/{id}', function ($id) {
+//
+//   $historia = DB::table('historias')->find($id);
+//
+//   return view('historias.show', compact('historias'));
+//
+// };
 
 // todo
 // -Home

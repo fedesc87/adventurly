@@ -1,0 +1,1 @@
+<a href="#" onclick="executeEleccion(this)" data-eleccion-id="<?php $row['id'] ?>" data-consecuencia="<?php $row['consecuencia'] ?>" class="button special fit">

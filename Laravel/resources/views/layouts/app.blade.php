@@ -11,7 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> <!-- Bootstrap -->
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet"> <!-- Estilos Propios -->
 </head>
 <body class="landing">
   <div id="page-wrapper">
@@ -45,11 +46,9 @@
 	<section id="banner">
 		<img src="images/Aventurefy-02.png" alt="Logo de Adventurly">
 		<h2>Adventurly</h2>
-		<p>Aventuras interactivas donde vos tomás las deciciones!</p>
-		<ul class="actions">
-			<li><a href="#cta" class="button special">Anotate</a></li>
-			<!-- <li><a href="#adventures" class="button special">Empeza!</a></li> -->
-		</ul>
+    
+    @yield('banner')
+
 	</section>
 
 <!-- Main -->
@@ -62,7 +61,7 @@
 	</section>
 
 <!-- CTA -->
-	<section id="cta">
+	<section id="special">
 
     @yield('cta')
 
@@ -91,7 +90,7 @@
       </a></li>
     </ul>
     <ul class="copyright">
-      <li>&copy; Adventurly es una idea por Fede & Pancho. Su derechos son de quien deban ser</li><br>
+      <li>&copy; Adventurly es una idea por Fede, Caro & Pancho. Su derechos son de quien deban ser</li><br>
       <li>Diseño por: <a href="http://campus.digitalhouse.com/login/index.php">Nosotros</a></li>
       <p>
 
@@ -129,12 +128,12 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrollgress.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/jquery.dropotron.min.js') }}"></script>
+<script src="{{ asset('js/jquery.scrollgress.min.js') }}"></script>
+<script src="{{ asset('js/skel.min.js') }}"></script>
+<script src="{{ asset('js/util.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 
 </body>
 </html>
