@@ -13,29 +13,16 @@
 
 Route::get('/', function () {
 
-  $stories = DB::table('stories')->where('id', '<=', 2)->get();
+  $books = DB::table('books')->where('id', '<=', 2)->get();
 
-    return view('home',compact('stories'));
-
-});
-
-Route::get('/historias', function () {
-
-  // $stories = DB::table('stories')->get();
-  $stories = App\Story::all();
-
-    return view('stories.index',compact('stories'));
+    return view('home',compact('books'));
 
 });
 
-Route::get('/historias/{story}', function ($id) {
+Route::get('/historias', 'BooksController@index');
 
-  // $story = DB::table('stories')->find($id);
-  $story = App\Story::find($id);
+Route::get('/historias/{book}','BooksController@show');
 
-    return view('stories.show',compact('story'));
-
-});
 
 Route::get('/capitulo/{chapter}', function ($id) {
 
@@ -48,6 +35,10 @@ Route::get('/capitulo/{chapter}', function ($id) {
 
 Route::get('/faq', function () {
     return view('faq');
+});
+
+Route::get('/user', function () {
+    return view('user');
 });
 
 Auth::routes();

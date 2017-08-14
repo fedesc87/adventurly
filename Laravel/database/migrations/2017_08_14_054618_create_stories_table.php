@@ -32,4 +32,4 @@ class CreateStoriesTable extends Migration
     {
         Schema::dropIfExists('stories');
     }
-}
+} 

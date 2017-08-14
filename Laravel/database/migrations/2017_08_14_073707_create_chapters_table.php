@@ -24,7 +24,7 @@ class CreateChaptersTable extends Migration
           $table->string('decision_b_text');
           $table->integer('decision_c_id');
           $table->string('decision_c_text');
-          $table->integer('story_id');
+          $table->integer('book_id');
           $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
 @section('banner')
   <p>Aventuras interactivas donde vos tomás las deciciones!</p>
   <ul class="actions">
-    <li><a href="#cta" class="button special">Anotate</a></li>
+    <li><a href="{{ url('/register') }}" class="button special">Anotate</a></li>
     <!-- <li><a href="#adventures" class="button special">Empeza!</a></li> -->
   </ul>
 @endsection
@@ -20,34 +20,34 @@
 
     <hr id="adventures">
     <div class="row">
-      @foreach ($stories as $story)
+      @foreach ($books as $book)
 
         <div class="6u 12u(narrower)">
 
           <section class="box special">
-            {{$name_spaces = str_replace(' ', '', $story->title)}}
-            <span class="image featured"><img src="images/{{ $story->id.$name_spaces}}.png" alt="Image for {{ $story->title }}" /></span>
-            <h3>{{ $story->title }}</h3>
-            <p>{{ $story->body }}</p>
+            {{$name_spaces = str_replace(' ', '', $book->title)}}
+            <span class="image featured"><img src="images/{{ $book->id.$name_spaces}}.png" alt="Image for {{ $book->title }}" /></span>
+            <h3>{{ $book->title }}</h3>
+            <p>{{ $book->body }}</p>
             <hr>
             <p style='color: #f39c12;'>
-              @for ($i=1; $i <= ($story->rating *2) ; $i++)
+              @for ($i=1; $i <= ($book->rating *2) ; $i++)
                 @if ( $i % 2 == 0 )
                   <i class="fa fa-star fa"></i>
                   {{-- soy par --}}
                 @endif
-                @if ( $i % 2 != 0 && $i == ($story->rating *2) )
+                @if ( $i % 2 != 0 && $i == ($book->rating *2) )
                   <i class="fa fa-star-half-o fa"></i>
                   {{-- soy inpar --}}
                 @endif
               @endfor
-              @for ($i= ceil($story->rating); $i < 5 ; $i++)
+              @for ($i= ceil($book->rating); $i < 5 ; $i++)
                 <i class="fa fa-star-o fa"></i>
               @endfor
             </p>
 
             <ul class="actions">
-              <li><a href="/capitulo/{{$story->chapter_id}}" class="button special fit">
+              <li><a href="/historias/{{$book->id}}" class="button special fit">
                  Empezá!</a>
               </li>
             </ul>
@@ -68,7 +68,7 @@
   </section>
 @endsection
 
-@section('special')
+@section('cta')
   <section id="cta">
     <h2>Anotate para más!</h2>
     <p>Volvete el primero en jugar y recibí un
