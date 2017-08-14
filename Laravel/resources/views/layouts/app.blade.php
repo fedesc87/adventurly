@@ -8,11 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Adventurly') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> <!-- Bootstrap -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet"> <!-- Estilos Propios -->
+    <link href="{{ asset('css/flexboxgrid.min.css') }}" rel="stylesheet"> <!-- Flexbox -->
+
 </head>
 <body class="landing">
   <div id="page-wrapper">
@@ -21,22 +23,22 @@
   <header id="header" class="alt">
     <nav id="nav">
       <ul>
-        <li><a href="index.php">Home</a></li>
-      <?php if (!isset($_SESSION["name"])){
-        echo '<li><a href="logIn.php">Log In</a></li>';
-        echo '<li><a href="signUp.php">Sign Up</a></li>';
-      }
-      ?>
-        <li><a href="faq.php">F.A.Q.</a></li>
-        <?php
-        if (isset($_SESSION["name"])) {?>
+        <li><a href="/">Home</a></li>
+        <li><a href="/faq">F.A.Q.</a></li>
+
+        @if (Route::has('login'))
+          @if (Auth::check())
             <li><a href="user.php"><i class="fa fa-user"></i><?=$pNombre?></a></li>
             <li><a href="exit.php"><i class="fa fa-window-close"></i>Exit</a></li>
-        <?php } ?>
-        <!-- <i class="fa fa-user fa-fw"> -->
+          @else
+              <li><a href="{{ url('/login') }}">Login</a></li>
+              <li><a href="{{ url('/register') }}">Register</a></li>
+          @endif
+        @endif
+
         <li><a href='javascript:colorswitch();' id="csspalette">Light Mode</a></li>
 
-        <script src="assets/js/colorswitch.js"></script>
+        <script src="{{ asset('js/colorswitch.js') }}"></script>
 
       </ul>
     </nav>
@@ -44,9 +46,9 @@
 
 <!-- Banner -->
 	<section id="banner">
-		<img src="images/Aventurefy-02.png" alt="Logo de Adventurly">
+		<img src="{{ asset('images/Aventurefy-02.png') }}" alt="Logo de Adventurly">
 		<h2>Adventurly</h2>
-    
+
     @yield('banner')
 
 	</section>
@@ -121,7 +123,7 @@
       <li class="contador"> Ya somos <span id='userCount'></span> usuarios!<li>
     </ul>
     <br>
-    <a href=""><i class="fa fa-bug fa-1x" aria-hidden="true"></i>  Reportanos un bicho!</a>
+    <li><a href=""><i class="fa fa-bug fa-1x" aria-hidden="true"></i>  Reportanos un bicho!</a></li>
   </footer>
 
 </div>

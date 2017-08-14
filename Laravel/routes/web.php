@@ -12,11 +12,38 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+
+  $stories = DB::table('stories')->where('id', '<=', 2)->get();
+
+    return view('home',compact('stories'));
+
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/historias', function () {
+
+  // $stories = DB::table('stories')->get();
+  $stories = App\Story::all();
+
+    return view('stories.index',compact('stories'));
+
+});
+
+Route::get('/historias/{story}', function ($id) {
+
+  // $story = DB::table('stories')->find($id);
+  $story = App\Story::find($id);
+
+    return view('stories.show',compact('story'));
+
+});
+
+Route::get('/capitulo/{chapter}', function ($id) {
+
+  // $story = DB::table('stories')->find($id);
+  $chapter = App\Chapter::find($id); //falta atarlo.
+
+    return view('chapters.show',compact('chapter'));
+
 });
 
 Route::get('/faq', function () {
@@ -27,7 +54,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/historias', 'HomeController@index')->name('home');
 
 // Route::get('/historias/{id}', function ($id) {
 //

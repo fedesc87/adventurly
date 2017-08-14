@@ -1,17 +1,26 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
+@section('content')
+  <section class="box special">
+    <header class="major">
+      <h2>{{ $story->title }}</h2>
+      <p>{{ $story->body }}</p>
+    </header>
+
+    <hr id="adventures">
+    <div class="row">
+
+        <div class="6u 12u(narrower)">
+
+          <section class="box special">
+            {{$name_spaces = str_replace(' ', '', $story->title)}}
+            <span class="image featured"><img src="{{ asset('images/'. $story->id.$name_spaces.'.png')}}" alt="Image for {{ $story->title }}" /></span>
+
+          </section>
+
         </div>
-    </div>
-</div>
+
+
+  </section>
 @endsection

@@ -20,46 +20,51 @@
 
     <hr id="adventures">
     <div class="row">
-      <div class="6u 12u(narrower)">
+      @foreach ($stories as $story)
 
-        <section class="box special">
-          <span class="image featured"><img src="images/elOrigen.jpg" alt="" /></span>
-          <h3>El Origen</h3>
-          <p>Toda gran aventura empieza con un héroe y su decición de seguir el camino.<br>
-            <i>Esta aventura te va a ayudar a entender el sistema de Adventurly</i></p>
-          <hr>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star" aria-hidden="true"></i>
-          <i class="fa fa-star-half-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <ul class="actions">
-            <li><a href="elPrincipio.php" class="button special fit">
-              <i class="fa fa-tree" aria-hidden="true"></i>
-               Empezá!</a>
-            </li>
-          </ul>
-        </section>
+        <div class="6u 12u(narrower)">
 
+          <section class="box special">
+            {{$name_spaces = str_replace(' ', '', $story->title)}}
+            <span class="image featured"><img src="images/{{ $story->id.$name_spaces}}.png" alt="Image for {{ $story->title }}" /></span>
+            <h3>{{ $story->title }}</h3>
+            <p>{{ $story->body }}</p>
+            <hr>
+            <p style='color: #f39c12;'>
+              @for ($i=1; $i <= ($story->rating *2) ; $i++)
+                @if ( $i % 2 == 0 )
+                  <i class="fa fa-star fa"></i>
+                  {{-- soy par --}}
+                @endif
+                @if ( $i % 2 != 0 && $i == ($story->rating *2) )
+                  <i class="fa fa-star-half-o fa"></i>
+                  {{-- soy inpar --}}
+                @endif
+              @endfor
+              @for ($i= ceil($story->rating); $i < 5 ; $i++)
+                <i class="fa fa-star-o fa"></i>
+              @endfor
+            </p>
+
+            <ul class="actions">
+              <li><a href="/capitulo/{{$story->chapter_id}}" class="button special fit">
+                 Empezá!</a>
+              </li>
+            </ul>
+          </section>
+
+        </div>
+
+      @endforeach
       </div>
-      <div class="6u 12u(narrower)">
 
-        <section class="box special">
-          <span class="image featured prox"><img src="images/elFin.jpg" alt="" /></span>
-          <h3>El Fin</h3>
-          <p>Todo termina al fin, Nada puede quedar. Nuestras aventuras pueden terminar pero el aventurero en nosotros no!</p>
-          <hr>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-
-          <ul class="actions">
-            <li><a href="#" class="button fit disabled">Proximamente</a></li>
+      <div class="row center-xs middle-xs">
+        <div class="col-xs-12">
+          <ul class="actions box">
+            <li><a href="/historias" class="button fit">Mas Historias</a></li>
           </ul>
-        </section>
-
+        </div>
+      </div>
   </section>
 @endsection
 
