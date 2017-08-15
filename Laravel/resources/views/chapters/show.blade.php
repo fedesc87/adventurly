@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('banner')
-  <h3>{{$chapter->book->name}}</h3>
+  {{-- <h3>{{$chapter->book->name}}</h3> --}}
 
 @endsection
 
@@ -9,9 +9,9 @@
   <section class="box special">
     <header class="major">
       <div class="row xs-middle xs-center">
-        <div class="col-xs-offset-2 col-xs-8">
+        <div class="col-xs">
           <h3>Capítulo {{ $chapter->chapter_num }}</h3>
-          <h5><i>{{ $chapter->prev_decision }}</i></h5>
+          {{-- <h5><i>{{ $chapter->prev_decision }}</i></h5> --}}
           <h4><b>{{ $chapter->description }}</h4>
         </div>
         <hr>
