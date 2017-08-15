@@ -27,8 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function medal()
+    public function unlocks()
     {
-      return $this->hasMany(Medal::class);
+      return $this->belongsMany(Medal::class);
     }
 }

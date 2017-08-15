@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Medal extends Model
 {
-  public function user()
+  public function unlocks()
   {
-    return $this->hasMany(User::class);
+    return $this->belongsMany(User::class);
   }
 }

@@ -3,8 +3,9 @@
 @section('banner')
   <p>Aventuras interactivas donde vos tomás las deciciones!</p>
   <ul class="actions">
+    @if (!Auth::check())
     <li><a href="{{ url('/register') }}" class="button special">Anotate</a></li>
-    <!-- <li><a href="#adventures" class="button special">Empeza!</a></li> -->
+    @endif
   </ul>
 @endsection
 
@@ -25,8 +26,7 @@
         <div class="6u 12u(narrower)">
 
           <section class="box special">
-            {{$name_spaces = str_replace(' ', '', $book->title)}}
-            <span class="image featured"><img src="images/{{ $book->id.$name_spaces}}.png" alt="Image for {{ $book->title }}" /></span>
+            <span class="image featured"><img data-name"{{$name_spaces = str_replace(' ', '', $book->title)}}" src="images/{{ $book->id.$name_spaces}}.png" alt="Image for {{ $book->title }}" /></span>
             <h3>{{ $book->title }}</h3>
             <p>{{ $book->body }}</p>
             <hr>
@@ -47,7 +47,7 @@
             </p>
 
             <ul class="actions">
-              <li><a href="/historias/{{$book->id}}" class="button special fit">
+              <li><a href="/capitulo/{{$book->chapter_id}}" class="button special fit">
                  Empezá!</a>
               </li>
             </ul>
@@ -69,24 +69,21 @@
 @endsection
 
 @section('cta')
-  <section id="cta">
-    <h2>Anotate para más!</h2>
-    <p>Volvete el primero en jugar y recibí un
-      <span class="fa-stack">
-        <i class="fa fa-dot-circle-o fa-stack-1x"></i>
-        <i class="fa fa-sun-o fa-spin fa-fw fa-stack-2x"></i>
-      </span>
-      parche exclusivo.</p>
+  <ul class="actions">
+    @if (!Auth::check())
 
-    <form>
-      <div class="row uniform 50%">
-        <div class="8u 12u(mobilep)">
-          <input type="email" name="email" id="email" placeholder="Email" />
-        </div>
-        <div class="4u 12u(mobilep)">
-          <input type="submit" value="Anotate" class="fit" />
-        </div>
-      </div>
-    </form>
-	</section>
+      <section id="cta">
+        <h2>Anotate para más!</h2>
+        <p>Volvete el primero en jugar y recibí un
+        <span class="fa-stack">
+          <i class="fa fa-dot-circle-o fa-stack-1x"></i>
+          <i class="fa fa-sun-o fa-spin fa-fw fa-stack-2x"></i>
+        </span>
+        parche exclusivo.</p>
+
+        <li><a href="{{ url('/register') }}" class="button special">Anotate</a></li>
+
+	    </section>
+    @endif
+  </ul>
 @endsection

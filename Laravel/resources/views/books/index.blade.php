@@ -44,7 +44,7 @@
 
             <ul class="actions">
               <li><a href="/historias/{{$book->id}}" class="button special fit">
-                 Empezá!</a>
+                 Conocer Más</a>
               </li>
             </ul>
           </section>

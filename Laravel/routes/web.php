@@ -38,7 +38,9 @@ Route::get('/faq', function () {
 });
 
 Route::get('/user', function () {
-    return view('user');
+  $user = Auth::user;
+  
+    return view('user',compact('user'));
 });
 
 Auth::routes();
