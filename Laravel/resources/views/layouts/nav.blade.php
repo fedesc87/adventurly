@@ -18,9 +18,25 @@
           @endif
         @endif
 
-        <li><a href='javascript:colorswitch();' id="csspalette">Light Mode</a></li>
+        {{-- No se como hacerlo funcionar asi que lo saco --}}
+        <li><a href='javascript:colorswitch();' data='Light' id="csspalette">Light Mode</a></li>
 
-        <script src="{{ asset('js/colorswitch.js') }}"></script>
+        <script>
+        function colorswitch () {
+
+        var current = document.getElementById('csspalette').innerHTML;
+
+          if (current == 'Light Mode') {
+            document.getElementById('csspalette').innerHTML = 'Dark Mode';
+            document.getElementById('csslink').href = 'http://localhost:8000/css/dark.css';
+          }
+
+          if (current == 'Dark Mode') {
+            document.getElementById('csspalette').innerHTML = 'Light Mode';
+            document.getElementById('csslink').href = 'http://localhost:8000/css/main.css';
+          }
+        }
+        </script>
 
       </ul>
     </nav>

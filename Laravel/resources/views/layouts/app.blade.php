@@ -1,3 +1,6 @@
+@php
+  $_SESSION['palet'] = 'Light';
+@endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -10,10 +13,19 @@
 
     <title>{{ config('app.name', 'Adventurly') }}</title>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> <!-- Bootstrap -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet"> <!-- Estilos Propios -->
-    <link href="{{ asset('css/flexboxgrid.min.css') }}" rel="stylesheet"> <!-- Flexbox -->
+<!-- Styles -->
+<link href="{{ asset('css/app.css') }}" rel="stylesheet"> <!-- Bootstrap -->
+
+
+@if ($_SESSION['palet'] = 'Light')
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet" id="csslink"> <!-- Estilos Light -->
+@elseif ($_SESSION['palet'] = 'Light')
+  <link href="{{ asset('css/dark.css') }}" rel="stylesheet" id="csslink"> <!-- Estilos Dark -->
+@else
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet" id="csslink">
+@endif
+
+<link href="{{ asset('css/flexboxgrid.min.css') }}" rel="stylesheet"> <!-- Flexbox -->
 
 </head>
 <body class="landing">
@@ -74,7 +86,8 @@
       <li>Diseño por: <a href="http://campus.digitalhouse.com/login/index.php">Nosotros</a></li>
       <p>
 
-        <script>
+        {{-- Tampoco funca asi que lo saco --}}
+        {{-- <script>
 
           countUsers();
           var users = setInterval(function(){ countUsers() }, 30000);
@@ -98,7 +111,7 @@
         </script>
 
 
-      <li class="contador"> Ya somos <span id='userCount'></span> usuarios!<li>
+      <li class="contador"> Ya somos <span id='userCount'></span> usuarios!<li> --}}
     </ul>
     <br>
     <li><a href=""><i class="fa fa-bug fa-1x" aria-hidden="true"></i>  Reportanos un bicho!</a></li>
