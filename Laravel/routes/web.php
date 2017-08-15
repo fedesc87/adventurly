@@ -19,6 +19,14 @@ Route::get('/', function () {
 
 });
 
+Route::get('/home', function () {
+
+  $books = DB::table('books')->where('id', '<=', 2)->get();
+
+    return view('home',compact('books'));
+
+});
+
 Route::get('/historias', 'BooksController@index');
 
 Route::get('/historias/{book}','BooksController@show');
@@ -38,14 +46,13 @@ Route::get('/faq', function () {
 });
 
 Route::get('/user', function () {
-  $user = Auth::user;
-  
-    return view('user',compact('user'));
+
+    return view('user');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('auth/logout', 'Auth\AuthController@logout');
 
 
 // Route::get('/historias/{id}', function ($id) {

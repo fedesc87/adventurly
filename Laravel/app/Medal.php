@@ -8,6 +8,6 @@ class Medal extends Model
 {
   public function unlocks()
   {
-    return $this->belongsMany(User::class);
+    return $this->belongstoMany(User::class);
   }
 }

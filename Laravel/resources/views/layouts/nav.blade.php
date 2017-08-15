@@ -9,7 +9,9 @@
           @if (Auth::check())
             <li> | </li>
             <li><a href="/user">{{ Auth::user()->name }}</a></li>
-            <li><a href="exit.php"></i>Exit</a></li>
+            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a></li>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
           @else
               <li><a href="{{ url('/login') }}">Login</a></li>
               <li><a href="{{ url('/register') }}">Register</a></li>

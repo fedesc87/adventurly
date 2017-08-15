@@ -27,8 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // public function unlocks()
+    // {
+    //   return $this->belongstoMany(Medal::class);
+    // }
+
     public function unlocks()
     {
-      return $this->belongsMany(Medal::class);
+      return $this->belongstoMany(Medal::class,'unlocks','user_id','medal_id');
     }
 }
