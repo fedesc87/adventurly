@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `adventurly` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `adventurly`;
 -- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
 -- Host: localhost    Database: adventurly
